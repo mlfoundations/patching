@@ -9,7 +9,7 @@ This repository contains code for the paper "Patching open-vocabulary models by 
 ### Summary figure
 
 <p align="center">
-<img src="img/scatter.png" alt="scatter"/>
+<img src="img/scatter.png" alt="scatter" width="50%"/>
 </p>
 
 Given a *patching task*, we wish to improve accuracy without degrading performance on *supported tasks*, where accuracy is already adequate.
