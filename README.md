@@ -5,12 +5,6 @@ This repository contains code for the paper "Patching open-vocabulary models by 
 ### Abstract
 *While open-vocabulary models like CLIP achieve high accuracy across many image classification tasks, there are still settings where their zero-shot performance is far from optimal. We study \emph{model patching}, where the goal is to improve accuracy on specific tasks (i.e., patching tasks) without degrading accuracy on tasks where performance is already adequate (i.e., supported tasks). Given a task to be patched, we first fine-tune without introducing new parameters, then interpolate the fine-tuned model weights with the model weights before fine-tuning. We explore model patching on nine tasks where zero-shot CLIP performs poorly, observing that patching increases accuracy by 15 to 60 percentage points while preserving accuracy on ImageNet within one percentage point of the zero-shot model. Additionally, we find that patching is more effective for larger models, demonstrate that a single model can be patched on multiple tasks, and identify cases of broad transfer, where patching one one task can increase accuracy on other tasks even when the classes are not shared. Finally, we investigate applications beyond standard benchmarks, including a patch which makes CLIP less susceptible to typographic attacks. Our findings demonstrate that it is possible to expand the set of tasks on which open-vocabulary models achieve high accuracy without re-training them from scratch.*
 
-
-## Appendix
-
-The appendix can be found at [appendix.pdf](appendix.pdf).
-
-
 ## Code
 
 ### Overview
@@ -77,5 +71,5 @@ python src/patch.py   \
 
 ## Typographic attack data
 
-The data can be found at `data/typographic_attacks`. The annotations for each image are in the name of the file.
+The data can be found at `typographic_attack_data.zip`. The annotations for each image are in the name of the file.
 For instance, `label=dog_text=cat.png` is an image of a "dog", with "cat" written on it. 
