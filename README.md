@@ -12,7 +12,7 @@ This repository contains code for the paper "Patching open-vocabulary models by 
 <img src="img/scatter.png" alt="scatter"/>
 </p>
 
-Patching open-vocabulary models by linearly interpolating weights.  Given a *patching task*, we wish to improve accuracy without degrading performance on *supported tasks*, where accuracy is already adequate.
+Given a *patching task*, we wish to improve accuracy without degrading performance on *supported tasks*, where accuracy is already adequate.
 When interpolating weights of fine-tuned models (top, left of each curve) and unpatched models (bottom, right of each curve), there are intermediate solutions where accuracy improves on the patching tasks without reducing accuracy on supported tasks.
 Results are averaged over nine patching tasks (Stanford Cars, DTD, EuroSAT, GTSRB, KITTI distance, MNIST, RESISC45, SUN397 and SVHN) and five supported tasks (ImageNet, CIFAR-10, CIFAR-100, STL-10 and Food101), and patching is conducted independently on each of the patching tasks.
 The dashed lines illustrate vertical movement from the unpatched model and horizontal movement from the fine-tuned model, indicating points without accuracy trade-offs.
