@@ -29,6 +29,7 @@ def eval_single_dataset(image_encoder, dataset_name, args):
     batched_data = enumerate(dataloader)
     device = args.device
 
+    model = model.to(device)
     with torch.no_grad():
         top1, correct, n = 0., 0., 0.
         for i, data in batched_data:

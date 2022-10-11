@@ -67,9 +67,10 @@ def finetune(args):
         model_path = os.path.join(args.save, args.train_dataset, f'checkpoint_0.pt')
         model.module.image_encoder.save(model_path)
 
-    model = model.cuda()
     for epoch in range(args.epochs):
         model.train()
+        model = model.cuda()
+
         data_loader = get_dataloader(
             dataset, is_train=True, args=args, image_encoder=None)
 
@@ -108,14 +109,15 @@ def finetune(args):
         # Saving model
         if args.save is not None:
             os.makedirs(args.save, exist_ok=True)
-            model_path = os.path.join(args.save, f'checkpoint_{epoch+1}.pt')
+            model_path = os.path.join(args.save, args.train_dataset, f'checkpoint_{epoch+1}.pt')
             image_encoder.save(model_path)
-            optim_path = os.path.join(args.save, f'optim_{epoch+1}.pt')
+            optim_path = os.path.join(args.save, args.train_dataset, f'optim_{epoch+1}.pt')
             torch.save(optimizer.state_dict(), optim_path)
 
         # Evaluate
         args.current_epoch = epoch
-        evaluate(image_encoder, args)
+        if args.eval_every_epoch:
+            evaluate(image_encoder, args)
 
     if args.save is not None:
         zs_path = os.path.join(args.save, args.train_dataset, 'checkpoint_0.pt')  

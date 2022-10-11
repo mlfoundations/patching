@@ -98,6 +98,9 @@ def parse_arguments():
         type=float,
         help='Interpolation coefficient for weight interpolations.'
     )
+    parser.add_argument(
+        "--eval-every-epoch", action="store_true", default=False,
+    )
     parsed_args = parser.parse_args()
     parsed_args.device = "cuda" if torch.cuda.is_available() else "cpu"
     

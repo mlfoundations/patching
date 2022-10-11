@@ -40,6 +40,8 @@ def patch(args):
 
     alphas = args.alpha
     for alpha in alphas:
+        print('='*100)
+        print(f'Evaluating with alpha={alpha:.2f}')
         args.alpha = alpha
 
         # interpolate between all weights in the checkpoints
@@ -52,7 +54,7 @@ def patch(args):
         finetuned.load_state_dict(theta)
 
         # save model
-        finetuned.save(os.path.join(args.save, f'patched_alpha={alpha:.3f}.pt'))
+        finetuned.save(os.path.join(args.save, args.train_dataset, f'patched_alpha={alpha:.3f}.pt'))
 
         # evaluate
         evaluate(finetuned, args)
